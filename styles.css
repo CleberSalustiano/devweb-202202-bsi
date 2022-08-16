@@ -24,6 +24,12 @@ nav ul {
 a {
     text-decoration: none;
     margin: 0 5px;
+    color: black;
+    transition: color 0.4s;
+}
+
+a:hover {
+    color: blue;
 }
 
 #images div {
