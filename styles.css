@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     background-color: azure;
+    font-size: 20px;
 }
 
 
@@ -32,10 +33,15 @@ a:hover {
     color: blue;
 }
 
-#images div {
-   display: flex; 
+#skins div {
+    display: flex;
 }
 
-table, tr, th, td {
-    border: 1px solid black;
+figure {
+    margin: 0;
+    margin-right: 10px;
+}
+
+figure img {
+    width: 300px;
 }
