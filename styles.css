@@ -1,47 +1,47 @@
 * {
-    box-sizing: border-box;
-    background-color: azure;
-    font-size: 20px;
+  box-sizing: border-box;
+  background-color: azure;
+  font-size: 20px;
 }
 
-
 header {
-    display: flex;
-    height: 50px;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
+  display: flex;
+  height: 50px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
 }
 
 section {
-    padding: 0 20px;
+  padding: 0 20px;
 }
 
 nav ul {
-    display: flex;
-    list-style: none;
+  display: flex;
+  list-style: none;
 }
 
 a {
-    text-decoration: none;
-    margin: 0 5px;
-    color: black;
-    transition: color 0.4s;
+  text-decoration: none;
+  margin: 0 10px;
+  color: black;
+  transition: color 0.4s;
 }
 
 a:hover {
-    color: blue;
+  color: blue;
 }
 
 #skins div {
-    display: flex;
+  display: flex;
+  justify-content: center;
 }
 
 figure {
-    margin: 0;
-    margin-right: 10px;
+  margin: 0;
+  margin-right: 10px;
 }
 
 figure img {
-    width: 300px;
+  width: 300px;
 }
