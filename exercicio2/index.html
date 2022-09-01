@@ -3,31 +3,32 @@
 
 <head>
   <title>SKINS CSGO</title>
-  <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
 
-<body>
-  <header>
-    <h1>Skins CSGO</h1>
-    <nav>
-      <ul>
-        <li><a href="#about">Sobre</a></li>
-        <li><a href="#skins">Skins</a></li>
-        <li><a href="#specification">Atributos das Skins</a></li>
-        <li><a href="#price">Preço das Skins</a></li>
-        <li><a href="#search">Buscar Skin</a></li>
+<body style="overflow-x: hidden;">
+  <header class="row ">
+    <h1 class="col">Skins CSGO</h1>
+    <nav class="container col">
+      <ul class="row list-unstyled">
+        <li class="col"><a href="#about" class="btn">Sobre</a></li>
+        <li class="col"><a href="#skins" class="btn">Skins</a></li>
+        <li class="col"><a href="#specification" class="btn">Atributos das Skins</a></li>
+        <li class="col"><a href="#price" class="btn">Preço das Skins</a></li>
+        <li class="col"><a href="#search" class="btn">Buscar Skin</a></li>
       </ul>
     </nav>
   </header>
   <main>
-    <section>
+    <section class="container-fluid row" class="container row">
       <h2>Motivo</h2>
       <p>
         O objetivo de dessa página é mostrar os conhecimentos adquiridos durante a disciplina de <b>Desenvolvimento
           Web</b>. Então aqui vou mostrar um pouco de Skins de CS, algo que gosto bastante.
       </p>
     </section>
-    <section id="about">
+    <section class="container-fluid row" id="about">
       <h2>Sobre</h2>
       <p>As skins do CSGO chegaram na atualização de 13 de agosto de 2013. Para devidas informações as skins são, de
         acorodo com a Wikipedia, "Skin ou Pele é um visual alternativo dado a um programa computacional. Dessa forma,
@@ -41,67 +42,92 @@
         custar mais de 10 a 15 mil doláres. Além disso, existem os <b>Stickers</b> que podem tornar tudo ainda mais
         caro.</p>
     </section>
-    <section id="skins">
+    <section class="container-fluid row" id="skins">
       <h2>SKINS</h2>
       <p>Aqui então iremos ver as skins mais famosas e mais queridas pelos jogadores</p>
       <div>
-        <figure>
-          <figcaption>M4A4 - HOWL</figcaption>
-          <img src="https://static1-br.millenium.gg/articles/6/76/56/@/106059-m4a4-howl-article_image_d-1.jpg">
-        </figure>
-        <figure>
-          <figcaption>AWP - Dragon Lore</figcaption>
-          <img
-            src="https://s2.glbimg.com/Yt1KyOropQxteSSgbgTlMgXfSxo=/0x0:1280x720/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2019/Q/C/abgL3mSDWNqZpdoA8jhA/novo-projeto-75-.jpg">
-        </figure>
-        <figure>
-          <figcaption>AK47 - Redline</figcaption>
-          <img src="https://pbs.twimg.com/media/EWIsEYqWAAEXRnc.jpg">
-        </figure>
-        <figure>
-          <figcaption>FACAS</figcaption>
-          <img src="https://i.ytimg.com/vi/orCmV--g2zA/mqdefault.jpg">
-        </figure>
+        <table >
+          <tr>
+            <td>
+              <figure>
+                <figcaption>M4A4 - HOWL</figcaption>
+                <img style="width: 300px;" src="https://static1-br.millenium.gg/articles/6/76/56/@/106059-m4a4-howl-article_image_d-1.jpg">
+              </figure>
+            </td>
+            <td>
+              <figure>
+                <figcaption>AWP - Dragon Lore</figcaption>
+                <img style="width: 300px;"
+                  src="https://s2.glbimg.com/Yt1KyOropQxteSSgbgTlMgXfSxo=/0x0:1280x720/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2019/Q/C/abgL3mSDWNqZpdoA8jhA/novo-projeto-75-.jpg">
+              </figure>
+            </td>
+            <td>
+              <figure>
+                <figcaption>AK47 - Redline</figcaption>
+                <img style="width: 300px;" src="https://pbs.twimg.com/media/EWIsEYqWAAEXRnc.jpg">
+              </figure>
+            </td>
+            <td>
+              <figure>
+                <figcaption>FACAS</figcaption>
+                <img style="width: 300px;" src="https://i.ytimg.com/vi/orCmV--g2zA/mqdefault.jpg">
+              </figure>
+            </td>
+          </tr>
+        </table>
       </div>
       <p>
-        As skins, como foi falado um pouco no sobre, possui características. As caracterísitcas são geradas e continuaram com ela no momento em que uma caixa é aberta. Para se conseguir uma SKIN no CSGO só há quatro  formas:
-        <ul>
-          <li><h3>Dropando numa caixa</h3>
-            <p>
-              As caixas dentro do CSGO elas são feitas a apartir de OPERAÇÕES, que são eventos do CSGO, ou vem com alguma atualização. Cada caixa fica por um determinado tempo, até outra ser lançada. As caixas são dropadas durante o jogo 
-            </p>
-          </li>
-            
-          <li>Fazendo trade</li>
-          <li>Dropando durante uma partida</li>
-          <li>Fazendo contrato de troca</li>
-        </ul>
+        As skins, como foi falado um pouco no sobre, possui características. As caracterísitcas são geradas e
+        continuaram com ela no momento em que uma caixa é aberta. Para se conseguir uma SKIN no CSGO só há quatro
+        formas:
+      <ul>
+        <li>
+          <h3>Dropando numa caixa</h3>
+          <p>
+            As caixas dentro do CSGO elas são feitas a apartir de OPERAÇÕES, que são eventos do CSGO, ou vem com alguma
+            atualização. Cada caixa fica por um determinado tempo, até outra ser lançada. As caixas são dropadas durante
+            o jogo
+          </p>
+        </li>
+
+        <li>Fazendo trade</li>
+        <li>Dropando durante uma partida</li>
+        <li>Fazendo contrato de troca</li>
+      </ul>
       </p>
     </section>
-    <section id="specification">
+    <section class="container-fluid row" id="specification">
       <h2>Atributos das skins</h2>
       <p>Todas as skins possuem alguns atributos, dentre eles temos:</p>
       <ol>
         <li>
           <h3>Float</h3>
-          <p>O Float ele é responsável pelo "desgaste" da skin, esse é feito a partir de um numero entre 0 e 1, onde zero é o menos desgastado possível e o 1 o mais desgastado possível. E dentre esses há nomes para derminados intervalos de float:
-            <ul>
-              <li>Battle-Scared (0 - 0.07)</li>
-              <li>Well-Worn (0.7 - 0.15)</li>
-              <li>Field-Test (0.15 - 0.38)</li>
-              <li>Minimal Wear (0.38 - 0.45)</li>
-              <li>Factory New (0.45 - 1)</li>
-            </ul>
+          <p>O Float ele é responsável pelo "desgaste" da skin, esse é feito a partir de um numero entre 0 e 1, onde
+            zero é o menos desgastado possível e o 1 o mais desgastado possível. E dentre esses há nomes para derminados
+            intervalos de float:
+          <ul>
+            <li>Battle-Scared (0 - 0.07)</li>
+            <li>Well-Worn (0.7 - 0.15)</li>
+            <li>Field-Test (0.15 - 0.38)</li>
+            <li>Minimal Wear (0.38 - 0.45)</li>
+            <li>Factory New (0.45 - 1)</li>
+          </ul>
           </p>
-          <p>O float ele não só mostra o desgaste, mas também pode influenciar no brilho (ao invés de desgastar), pode também não afetar em nada em um determinado ponto e pode afetar também na coloração. Existem várias skins que possuem diferentes reações com a variação do float</p>
+          <p>O float ele não só mostra o desgaste, mas também pode influenciar no brilho (ao invés de desgastar), pode
+            também não afetar em nada em um determinado ponto e pode afetar também na coloração. Existem várias skins
+            que possuem diferentes reações com a variação do float</p>
         </li>
         <li>
           <h3>Pattern</h3>
-          <p>Existem skins que possuem patterns diferentes. As skins normalmente são baseadas em imagens e os patterns podem ser partes visíveis dessas imagens, ou quantidade de coloração (no caso das fades) etc. O pattern tem grande influência dentro de algumas skins, podendo deixar uma skin que já é cara, ainda mais cara. Existem skins que posseum milhares de patterns</p>
+          <p>Existem skins que possuem patterns diferentes. As skins normalmente são baseadas em imagens e os patterns
+            podem ser partes visíveis dessas imagens, ou quantidade de coloração (no caso das fades) etc. O pattern tem
+            grande influência dentro de algumas skins, podendo deixar uma skin que já é cara, ainda mais cara. Existem
+            skins que posseum milhares de patterns</p>
         </li>
         <li>
           <h3>Raridade</h3>
-          <p>Ao dropar uma skin dentro de uma caixa, há um grau de raridade. Dentro do CS temos alguns tipos de raridade:</p>
+          <p>Ao dropar uma skin dentro de uma caixa, há um grau de raridade. Dentro do CS temos alguns tipos de
+            raridade:</p>
           <ol>
             <li>Cinza - A menor raridade</li>
             <li>Azul</li>
@@ -112,19 +138,26 @@
             <li>Contrabando</li>
           </ol>
           <p>
-            As que são possível ser dropadas em caixas são até a de raridade "Secreta", a única Skin que é de nível "Contrabando" é a mais cara do jogo: HOWL. Para saber mais <a href="https://www.skinwallet.com/br/csgo/m4a4-howl/#:~:text=A%20StatTrak%20M4A4%20Howl%20foi,estoques%20dos%20jogadores%2C%20subitamente%20aumentou.">CLICK AQUI</a>.
+            As que são possível ser dropadas em caixas são até a de raridade "Secreta", a única Skin que é de nível
+            "Contrabando" é a mais cara do jogo: HOWL. Para saber mais <a
+              href="https://www.skinwallet.com/br/csgo/m4a4-howl/#:~:text=A%20StatTrak%20M4A4%20Howl%20foi,estoques%20dos%20jogadores%2C%20subitamente%20aumentou.">CLICK
+              AQUI</a>.
           </p>
           <p>
-            As de nível secretos são as Facas e Luvas, que são o item mais raro que pode ser tirado dentro de uma caixa. 
+            As de nível secretos são as Facas e Luvas, que são o item mais raro que pode ser tirado dentro de uma caixa.
           </p>
         </li>
       </ol>
-      <p>Para uma skin ser cara, ela precisa ter a combinação dos três acima e isso, somado a vontade do público de ter a skin, ela a preços altíssimos com skins sendo vendidas até à US$ 775 mil, onde essa foi uma skin chamda "Karambit - Blue Gem" que básicamente une tudo o que foi descrito acima. É uma skin de raridade Secreta, com um ótimo float e o melhor pattern</p>
+      <p>Para uma skin ser cara, ela precisa ter a combinação dos três acima e isso, somado a vontade do público de ter
+        a skin, ela a preços altíssimos com skins sendo vendidas até à US$ 775 mil, onde essa foi uma skin chamda
+        "Karambit - Blue Gem" que básicamente une tudo o que foi descrito acima. É uma skin de raridade Secreta, com um
+        ótimo float e o melhor pattern</p>
     </section>
-    <section id="price">
+    <section class="container-fluid row" id="price">
       <h2>Preço das Skins</h2>
-      <p>Aqui iremos ver uma tabelinha que mostra preços de algumas skins e o quanto o mercado é bem grande a ponto de existir os valores que serão vistos</p>
-      <table>
+      <p>Aqui iremos ver uma tabelinha que mostra preços de algumas skins e o quanto o mercado é bem grande a ponto de
+        existir os valores que serão vistos</p>
+      <table class="container table text-center">
         <tr>
           <th>Nome da Skin</th>
           <td>Preço</td>
@@ -147,12 +180,12 @@
         </tr>
       </table>
     </section>
-    <section id="search">
+    <section class="container-fluid row" id="search">
       <h2>Pesquise sua SKIN</h2>
       <form action="https://google.com/search" method="GET">
-          <input type="text" name="q" placeholder="search" value="Skin CSGO ">
-          <input type="submit" value="pesquisar">
-          <input type="reset" value="limpar">
+        <input type="text" name="q" placeholder="search" value="Skin CSGO ">
+        <input type="submit" value="pesquisar">
+        <input type="reset" value="limpar">
       </form>
     </section>
   </main>
