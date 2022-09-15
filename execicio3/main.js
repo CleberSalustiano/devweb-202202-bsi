@@ -49,6 +49,10 @@ function criaTabuleiro() {
 
 function jogadorDaVez() {
 	const pecas = document.querySelectorAll(".peca");
+	const damas = document.querySelectorAll(".dama");
+	damas.forEach(dama => {
+		dama.draggable = !dama.draggable
+	})
 	pecas.forEach((peca) => {
 		peca.draggable = !peca.draggable;
 	});
@@ -77,7 +81,6 @@ function drop(ev) {
 	const imgid = ev.dataTransfer.getData("imgid");
 	const imagem = document.querySelector(`#${imgid}`);
 	imagem.parentElement.addEventListener("dragover", allowDrop);
-  console.log("here")
 
 	/*Calculo distancia*/
 	const [linhaImagem, colunaImagem] = imagem.classList[1]
@@ -87,40 +90,44 @@ function drop(ev) {
 		.split("a")[1]
 		.split("-");
 	const distanciaLinha = +linhaAlvo - +linhaImagem;
-	const distanciaColuna =
-		+colunaAlvo - +colunaImagem > 0
-			? +colunaAlvo - +colunaImagem
-			: +colunaImagem - +colunaAlvo;
-	if (imagem.id[0] === "r" && distanciaColuna === 1 && distanciaLinha === -1) {
-		imagem.className = imagem.classList[0] + " " + ev.srcElement.className;
-		console.log(imagem.className);
-		movePeca(ev, imagem, jogadorDaVez);
+	const distanciaColuna =+colunaAlvo - +colunaImagem
+	if (imagem.classList[0] !== "dama") {
+		if (imagem.id[0] === "r" && (distanciaColuna === 1 || distanciaColuna === -1) && distanciaLinha === -1) {
+	
+			movePeca(ev, imagem, jogadorDaVez);
+		}
+		if (
+			imagem.id[0] === "r" &&
+			(distanciaColuna === 2 || distanciaColuna === -2) &&
+			(distanciaLinha === -2 || distanciaLinha === 2)
+		) {
+			comePecaOposta(+linhaImagem, +colunaImagem, "b", ev, imagem, jogadorDaVez);
+		}
+		if (imagem.id[0] === "b" && (distanciaColuna === 1 || distanciaColuna === -1) && distanciaLinha === 1) {
+	
+			movePeca(ev, imagem, jogadorDaVez);
+		}
+		if (
+			imagem.id[0] === "b" &&
+			(distanciaColuna === 2 || distanciaColuna === -2) &&
+			(distanciaLinha === -2 || distanciaLinha === 2)
+		) {
+			comePecaOposta(+linhaImagem, +colunaImagem, "r", ev, imagem, jogadorDaVez);
+		}
+	
+		if (imagem.id[0] === "r" && +imagem.classList[1].split("a")[1].split("-")[0] === 1) {
+			imagem.className = "dama " + imagem.classList[1];
+		} else if (imagem.id[0] === "b" && +imagem.classList[1].split("a")[1].split("-")[0] === 8) {
+			imagem.className = "dama " + imagem.classList[1];
+		}
+	} else {
+		moveDama(+linhaImagem, +colunaImagem, ev, imagem, jogadorDaVez, distanciaLinha, distanciaColuna);
 	}
-	if (
-		imagem.id[0] === "r" &&
-		distanciaColuna === 2 &&
-		(distanciaLinha === -2 || distanciaLinha === 2)
-	) {
-		comePecaOposta(+linhaImagem, +colunaImagem, "b", ev, imagem, jogadorDaVez);
-	}
-	if (imagem.id[0] === "b" && distanciaColuna === 1 && distanciaLinha === 1) {
-		imagem.className = imagem.classList[0] + " " + ev.srcElement.className;
-		movePeca(ev, imagem, jogadorDaVez);
-	}
-	if (
-		imagem.id[0] === "b" &&
-		distanciaColuna === 2 &&
-		(distanciaLinha === -2 || distanciaLinha === 2)
-	) {
-		comePecaOposta(+linhaImagem, +colunaImagem, "r", ev, imagem, jogadorDaVez);
-	}
-
-  if (imagem.id[0] === "r" && +imagem.classList[1].split("a")[1].split("-")[0] === 1) {
-    console.log("here")
-  }
+	//console.log(imagem)
 }
 
 function movePeca(ev, imagem, jogadorDaVez) {
+	imagem.className = imagem.classList[0] + " " + ev.srcElement.className;
 	ev.target.appendChild(imagem);
 	ev.target.removeEventListener("dragover", allowDrop);
 	jogadorDaVez();
@@ -181,14 +188,76 @@ function comePecaOposta(
 		}
 	}
 	if (espacoJogo1) {
-		const peca = document.querySelector(".peca." + espacoJogo1.className);
-    const container = document.querySelector(".container")
+		let peca;
+		document.querySelector(".peca." + espacoJogo1.className) ? peca = document.querySelector(".peca." + espacoJogo1.className) :
+		peca = document.querySelector(".dama." + espacoJogo1.className) 
+		
     if (peca.id[0] == "r" && imagem.id[0] === "b" || peca.id[0] == "b" && imagem.id[0] === "r" ) {
       peca.setAttribute("draggable", "false");
+	  espacoJogo1.addEventListener("dragover", allowDrop);
       peca.parentNode.removeChild(peca);
-      imagem.className = imagem.classList[0] + " " + ev.srcElement.className;
+
       movePeca(ev, imagem, jogadorDaVez);
     }
     
 	}
+}
+
+function moveDama(linhaImagem, colunaImagem, ev, imagem, jogadorDaVez, distanciaLinha, distanciaColuna) {
+	// console.log(distanciaColuna, distanciaLinha);
+	if ((distanciaColuna === 1 || distanciaColuna === -1) && (distanciaLinha === 1 || distanciaLinha -1)) {
+		movePeca(ev, imagem, jogadorDaVez);
+	} else {
+		let count = 0;
+		let linhaAlvo, colunaAlvo, acrescentadorLinha, acrescentadorColuna, espacoJogoComido;
+		let [linhaFinal, colunaFinal] = ev.srcElement.className.split("a")[1].split("-");
+		if(distanciaLinha * -1 === distanciaColuna && distanciaColuna >= 1) {
+			//pra cima direita
+			acrescentadorLinha = -1;
+			acrescentadorColuna = 1;
+			linhaAlvo = linhaImagem + acrescentadorLinha;
+			colunaAlvo = colunaImagem + acrescentadorColuna;
+		} else if  (distanciaLinha * 1 === distanciaColuna && distanciaColuna >= 1) {
+			//pra baixo direita
+			acrescentadorLinha = 1;
+			acrescentadorColuna = 1;
+			linhaAlvo = linhaImagem + acrescentadorLinha;
+			colunaAlvo = colunaImagem + acrescentadorColuna;
+		} else if (distanciaLinha * -1 === distanciaColuna && distanciaColuna <= -1) {
+			//pra baixo esquerda
+			acrescentadorLinha = 1;
+			acrescentadorColuna = -1;
+			linhaAlvo = linhaImagem + acrescentadorLinha;
+			colunaAlvo = colunaImagem + acrescentadorColuna;
+		} else if (distanciaLinha * 1 === distanciaColuna && distanciaColuna <= -1) {
+			//pra cima esquerda
+			acrescentadorLinha = -1;
+			acrescentadorColuna = -1;
+			linhaAlvo = linhaImagem + acrescentadorLinha;
+			colunaAlvo = colunaImagem + acrescentadorColuna;
+		}
+		while ((linhaAlvo != +linhaFinal && colunaAlvo != +colunaFinal) && count <= 2 ) {
+			const espacoJogo = document.querySelector(".a" + linhaAlvo + "-" + colunaAlvo);
+			if (espacoJogo != null && espacoJogo.childNodes[0] != undefined) {
+				espacoJogoComido = espacoJogo;
+				count++;
+			}
+			linhaAlvo += acrescentadorLinha;
+			colunaAlvo += acrescentadorColuna;
+		}
+		if (count === 0) {
+	
+			movePeca(ev, imagem, jogadorDaVez);
+		} else if (count === 1 && imagem.id[0] === "r") {
+			espacoJogoComido.childNodes[0].remove();
+			espacoJogoComido.addEventListener("dragover", allowDrop);
+	
+			movePeca(ev, imagem, jogadorDaVez);
+		} else if (count === 1 && imagem.id[0] === "b") {
+			espacoJogoComido.childNodes[0].remove();
+			espacoJogoComido.addEventListener("dragover", allowDrop);
+	
+			movePeca(ev, imagem, jogadorDaVez);		}
+	}
+
 }
