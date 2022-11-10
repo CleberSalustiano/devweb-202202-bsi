@@ -5,27 +5,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>Home</title>
+  <title>Criar Posts</title>
 </head>
 <body>
   <header>
     <nav>
-      <ul>Home</ul>
+      <ul><a href="../home/index.html">Home</a></ul>
       <ul><a href="../meusPosts/index.html">Meus Posts</a></ul>
-      <ul><a href="../criarPosts/index.html">Criar Novo Post</a></ul>
+      <ul>Criar Novo Post</ul>
       <ul><span id="username"></span> <button id="sair">Sair</button></ul>
     </nav>
   </header>
   <section class="posts">
     <div>
-      <h2>Titulo: </h2>
+      <p>Titulo: </p>
+      <input id="title" type="text">       
       <p>Paragrafo: </p>
-      <p>User: </p>
-    </div>
-    <div>
-      <h2>Titulo: </h2>
-      <p>Paragrafo: </p>
-      <p>User: </p>
+      <textarea id="paragraph" type="text"></textarea>
+      <span class="error"></span>
+      <button id="criar">Criar Post</button>
     </div>
   </section>
   <script src="script.js"></script>

@@ -25,7 +25,7 @@ fetch(url, {
         <p>User: ${post.username}</p>
         <p>
           <button class="delete" onclick="deletePost(${post.id})">Deletar</button>
-          <button class="edit">Editar</button>
+          <button class="edit" onclick="editarPost(${post.id})">Editar</button>
         </p>
       </div>
     `;
@@ -59,4 +59,9 @@ function deletePost(id) {
 			window.location.href = "../meusPosts/index.html";
 		}
 	})
+}
+
+function editarPost(id) {
+	localStorage.setItem("id_post", id);
+	window.location.href = "../editar/index.html"
 }
