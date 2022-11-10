@@ -2,7 +2,6 @@ const token = localStorage.getItem("token");
 const sair = document.querySelector("#sair");
 const usernameEntrada = document.querySelector("#username");
 const posts = document.querySelector(".posts");
-
 let url = "https://devweb-api.herokuapp.com/myPosts";
 
 fetch(url, {
@@ -25,7 +24,7 @@ fetch(url, {
         <p>Paragrafo: ${post.paragraph}</p>
         <p>User: ${post.username}</p>
         <p>
-          <button class="delete">Deletar</button>
+          <button class="delete" onclick="deletePost(${post.id})">Deletar</button>
           <button class="edit">Editar</button>
         </p>
       </div>
@@ -42,3 +41,22 @@ fetch(url, {
     localStorage.setItem("token", "");
     window.location.href = "../login/index.html";
   })
+
+function deletePost(id) {
+	url = `https://devweb-api.herokuapp.com/post/${id}`
+	fetch(url, {
+		method: "DELETE",
+		headers: {
+			"Content-type": "application/json",
+			Authorization: "Bearer " + token,
+		},
+	})
+	.then((response) => response.json())
+	.then((data) => {
+		if (data.error) {
+			console.log(data.error)
+		} else {
+			window.location.href = "../meusPosts/index.html";
+		}
+	})
+}
