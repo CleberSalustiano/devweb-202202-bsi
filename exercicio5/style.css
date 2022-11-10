@@ -36,3 +36,8 @@ button {
 .error {
   color: red;
 }
+
+a {
+  margin-top: 5px;
+  color: black;
+}
