@@ -49,3 +49,11 @@ ul:hover, a:hover {
   padding: 10px;
   margin-bottom: 20px;
 }
+
+ul:last-child {
+  cursor: initial;
+  transition: 0;
+}
+ul:last-child:hover {
+  color: white;
+}

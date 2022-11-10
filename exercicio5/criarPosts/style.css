@@ -72,3 +72,11 @@ input {
   justify-content: center;
   align-items: center;
 }
+
+ul:last-child {
+  cursor: initial;
+  transition: 0;
+}
+ul:last-child:hover {
+  color: white;
+}
